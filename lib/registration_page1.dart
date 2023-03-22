@@ -1,6 +1,8 @@
 import 'package:ebarangay_ph/dropdown.dart';
 import 'package:flutter/material.dart';
 
+import 'registration_page2.dart';
+
 
 class FRegisterpage extends StatefulWidget {
   const FRegisterpage({Key? key}) : super(key: key);
@@ -16,7 +18,6 @@ class _FRegisterpageState extends State<FRegisterpage> {
   final TextEditingController _dateController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
   final TextEditingController _moController = TextEditingController();
-  final _formKey = GlobalKey();
 
   Future _selectDate(BuildContext context)async{
     final DateTime? picked = await showDatePicker(
@@ -32,6 +33,8 @@ class _FRegisterpageState extends State<FRegisterpage> {
       });
     }
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +62,6 @@ class _FRegisterpageState extends State<FRegisterpage> {
                   )
               ),
               child: SingleChildScrollView(
-                child:Form(
-                  key: _formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -477,15 +478,21 @@ class _FRegisterpageState extends State<FRegisterpage> {
                       width: 365,
                       child: Container(
                         padding: const EdgeInsets.only(left:225),
-                        child: const RegNextBtn(),
+                        child: ElevatedButton(
+                          onPressed: (){
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) => RegStep2())
+                            );
+                          },
+                          child: const Text('Next'),
+                        ),
                       ),
                     ),
-                    SizedBox(height: 20.0)
+                    const SizedBox(height: 20.0)
                   ],
                 ),
                 ),
               ),
-            ),
           ],
         ),
       ),

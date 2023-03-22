@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
      body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
         image: DecorationImage(
         image: AssetImage('android/assets/images/bg.png'),
         fit: BoxFit.cover,
@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
            Container(
              height: 400,
              width: MediaQuery.of(context).size.width * 0.8,
-             margin: EdgeInsets.only(top: 25),
+             margin: const EdgeInsets.only(top: 25),
              decoration: BoxDecoration(
                  border: Border.all(
                      color: Colors.grey.shade500,
@@ -94,27 +94,27 @@ class _MyHomePageState extends State<MyHomePage> {
                    decoration: BoxDecoration(
                      shape: BoxShape.circle,
                      border: Border.all(
-                       color: Color(0xFF0288D1),
+                       color: const Color(0xFF0288D1),
                        width: 0.5,
                      ),
                    ),
                  ),
-                 SizedBox(height: 20),
-                 Text(
+                 const SizedBox(height: 20),
+                 const Text(
                    'What Is eBarangayPh?',
                    style: TextStyle(
                      fontSize: 24,
                      fontWeight: FontWeight.bold,
                    ),
                  ),
-                 SizedBox(height: 10),
-                 Text(
+                 const SizedBox(height: 10),
+                 const Text(
                    '“eBarangayPH” is an Online Barangay Information System and an e-governance solution using Internet and Mobile Technologies. It is designed to use systematic approach in managing: Resident Records Blotters Hearing and Settlement Records',
                    style: TextStyle(
                      fontSize: 12,
                    ),
                  ),
-                 SizedBox(height: 32),
+                 const SizedBox(height: 32),
                ],
              ),
            ),
@@ -122,14 +122,14 @@ class _MyHomePageState extends State<MyHomePage> {
              mainAxisAlignment: MainAxisAlignment.center,
              children: [
                Checkbox(value: false, onChanged: (value){}),
-               Text('I agree with the Data Privacy Terms',
+               const Text('I agree with the Data Privacy Terms',
                style: TextStyle(
                  fontSize: 10,
                ),
                ),
              ],
            ),
-       SizedBox(height: 0.5),
+       const SizedBox(height: 0.5),
        SizedBox(
          width: 220,
          child: ElevatedButton(
@@ -137,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
              Navigator.push(context, MaterialPageRoute(builder: (context) => FRegisterpage()),
              );
            },
-           child: Text('GET STARTED'),
+           child: const Text('GET STARTED'),
          ),
        )
          ],

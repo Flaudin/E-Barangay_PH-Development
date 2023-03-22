@@ -1,5 +1,4 @@
 import 'package:ebarangay_ph/registration_page2.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 const List _genderlist = ['Male', 'Female', 'LGBT'];
@@ -125,45 +124,8 @@ class _VotersOptionState extends State<VotersOption> {
   }
 }
 
-class RegNextBtn extends StatefulWidget {
-  const RegNextBtn({Key? key}) : super(key: key);
 
-  @override
-  State<RegNextBtn> createState() => _RegNextBtnState();
-}
 
-class _RegNextBtnState extends State<RegNextBtn> {
-  final _formKey = GlobalKey<FormState>();
-  
-  void _regNext1(){
-    if (_formKey.currentState!.validate()){
-      Navigator.push(context, MaterialPageRoute(builder: (context) => const RegStep2()),
-      );
-    }
-    else{
-      showDialog(
-        context: context,
-        builder: (context) =>  AlertDialog(
-          title:  const Text('Error'),
-          content: const Text('Please fill in all fields.'),
-          actions: [
-            ElevatedButton(
-                onPressed: () => Navigator.pop(context),
-                child: const Text('OK'),
-            )
-          ],
-        )
-      );
-    }
-  }
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-        onPressed: _regNext1,
-        child: const Text('Next'),
-    );
-  }
-}
 
 
 
