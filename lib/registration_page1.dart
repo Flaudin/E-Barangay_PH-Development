@@ -47,10 +47,17 @@ class _FRegisterpageState extends State<FRegisterpage> {
               fit: BoxFit.cover,
             ),
           ),
+        width: 500,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('android/assets/images/logo.png'),
+            const SizedBox(
+              width: 250,
+              height: 100,
+              child: Image(
+                  image: AssetImage('android/assets/images/logo.png')
+              ),
+            ),
             Container(
               height: 500,
               width: 380,

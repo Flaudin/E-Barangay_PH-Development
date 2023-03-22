@@ -70,15 +70,21 @@ class _MyHomePageState extends State<MyHomePage> {
         fit: BoxFit.cover,
      ),
      ),
+       width: 500,
        child: Column(
          mainAxisAlignment: MainAxisAlignment.center,
          children: [
-           Image.asset('android/assets/images/logo.png',
+           const SizedBox(
+             width: 250,
+             height: 100,
+             child: Image(
+                 image: AssetImage('android/assets/images/logo.png')
+             ),
            ),
            Container(
              height: 400,
-             width: MediaQuery.of(context).size.width * 0.8,
-             margin: const EdgeInsets.only(top: 25),
+             width: 380,
+             margin: const EdgeInsets.only(top: 15),
              decoration: BoxDecoration(
                  border: Border.all(
                      color: Colors.grey.shade500,
@@ -89,6 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                mainAxisAlignment: MainAxisAlignment.center,
                children: [
                  Container(
+                   padding: const EdgeInsets.only(top: 20),
                    height: 125,
                    width: 125,
                    decoration: BoxDecoration(
@@ -108,10 +115,15 @@ class _MyHomePageState extends State<MyHomePage> {
                    ),
                  ),
                  const SizedBox(height: 10),
-                 const Text(
-                   '“eBarangayPH” is an Online Barangay Information System and an e-governance solution using Internet and Mobile Technologies. It is designed to use systematic approach in managing: Resident Records Blotters Hearing and Settlement Records',
-                   style: TextStyle(
-                     fontSize: 12,
+                 Container(
+                   margin: const EdgeInsets.symmetric(horizontal: 18.0),
+                   child: const SingleChildScrollView(
+                     child:  Text(
+                       '“eBarangayPH” is an Online Barangay Information System and an e-governance solution using Internet and Mobile Technologies. It is designed to use systematic approach in managing: Resident Records Blotters Hearing and Settlement Records',
+                       style: TextStyle(
+                         fontSize: 12,
+                       ),
+                     ),
                    ),
                  ),
                  const SizedBox(height: 32),

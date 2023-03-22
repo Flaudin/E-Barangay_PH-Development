@@ -1,19 +1,19 @@
-import 'package:ebarangay_ph/registration_page3.dart';
+import 'package:ebarangay_ph/homepage.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
-class RegStep2 extends StatefulWidget {
-  const RegStep2({Key? key}) : super(key: key);
+class RegStep3 extends StatefulWidget {
+  const RegStep3({Key? key}) : super(key: key);
 
   @override
-  State<RegStep2> createState() => _RegStep2State();
+  State<RegStep3> createState() => _RegStep3State();
 }
 
-class _RegStep2State extends State<RegStep2> {
+class _RegStep3State extends State<RegStep3> {
 
-   File? gallimage;
-   final picker = ImagePicker();
+  File? gallimage;
+  final picker = ImagePicker();
 
   Future getImageFromGallery() async {
     final pickedFile = await picker.getImage(source: ImageSource.gallery);
@@ -22,32 +22,32 @@ class _RegStep2State extends State<RegStep2> {
     });
   }
 
-   Future getImageFromCamera() async {
-     final pickedFile = await picker.getImage(source: ImageSource.camera);
-     setState(() {
-       gallimage = (pickedFile !=null ? File(pickedFile.path) : null)!;
-     });
-   }
+  Future getImageFromCamera() async {
+    final pickedFile = await picker.getImage(source: ImageSource.camera);
+    setState(() {
+      gallimage = (pickedFile !=null ? File(pickedFile.path) : null)!;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('android/assets/images/bg.png'),
-              fit: BoxFit.cover,
-            )
+          image: DecorationImage(
+            image: AssetImage('android/assets/images/bg.png'),
+            fit: BoxFit.cover,
+          ),
         ),
         width: 500,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children:  <Widget>[
             const SizedBox(
               width: 250,
               height: 100,
               child: Image(
-                image: AssetImage('android/assets/images/logo.png'),
+                  image: AssetImage('android/assets/images/logo.png'),
               ),
             ),
             Container(
@@ -55,10 +55,10 @@ class _RegStep2State extends State<RegStep2> {
               width: 380,
               margin: const EdgeInsets.only(top: 1),
               decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.grey.shade500,
-                    width: 0.5,
-                  )
+                border: Border.all(
+                  color: Colors.grey.shade500,
+                  width: 0.5,
+                ),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +76,7 @@ class _RegStep2State extends State<RegStep2> {
                   const SizedBox(height: 20.0),
                   Container(
                     padding: const EdgeInsets.only(left: 10.0),
-                    child: Text('STEP: 2',
+                    child: Text('STEP: 3',
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
@@ -100,29 +100,18 @@ class _RegStep2State extends State<RegStep2> {
                   ),
                   const SizedBox(height: 20.0),
                   Container(
-                    padding: const EdgeInsets.only(left:50),
+                    padding: const EdgeInsets.only(left: 75),
+                    width: 300,
                     child: ElevatedButton.icon(
-                    icon: const Icon(Icons.photo_library),
-                    onPressed:  getImageFromGallery,
-                    label: const Text('Upload Government ID via Gallery'),
+                      icon: const Icon(Icons.camera_alt),
+                      onPressed: getImageFromCamera,
+                      label: const Text('Upload Selfie'),
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.grey
                       ),
                     ),
-                    ),
-                    const SizedBox(height: 20.0),
-                    Container(
-                      padding: const EdgeInsets.only(left: 50),
-                      child: ElevatedButton.icon(
-                        icon: const Icon(Icons.camera_alt),
-                        onPressed: getImageFromCamera,
-                        label: const Text('Upload Government ID via Camera'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.grey
-                        ),
-                      ),
-                    ),
-                  const SizedBox(height:10),
+                  ),
+                  const SizedBox(height:20),
                   SizedBox(
                     height: 50.0,
                     width: 365,
@@ -131,7 +120,7 @@ class _RegStep2State extends State<RegStep2> {
                       child: ElevatedButton(
                         onPressed: (){
                           Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => const RegStep3())
+                              MaterialPageRoute(builder: (context) => const HomePage())
                           );
                         },
                         child: const Text('Next'),
@@ -140,14 +129,10 @@ class _RegStep2State extends State<RegStep2> {
                   ),
                 ],
               ),
-            ),
+            )
           ],
         ),
       ),
     );
   }
 }
-
-
-
-
