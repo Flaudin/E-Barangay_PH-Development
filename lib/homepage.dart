@@ -1,6 +1,3 @@
-import 'dart:html';
-
-import 'package:ebarangay_ph/dropdown.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,6 +16,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          // onPressed: Scaffold.of(context).openDrawer(),
+          onPressed: (){},
+          icon: const Icon(Icons.menu),
+        ),
         centerTitle: true,
         title: Image.asset('android/assets/images/logo.png',
           height: kToolbarHeight,
